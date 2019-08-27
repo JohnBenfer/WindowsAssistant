@@ -23,13 +23,12 @@ namespace Windows_Assistant
         PromptBuilder pb = new PromptBuilder();
         SpeechRecognitionEngine sre = new SpeechRecognitionEngine();
         Choices choices = new Choices();
-        
-        //choices.Add(new string[] {"hello", "open"});
+        IFTTT webObject = new IFTTT("cQ3xgk9nxLdnmZzs3VkXzv", "https://maker.ifttt.com/trigger/{event}/with/key/webhookskey");
 
         public Form1()
         {
             InitializeComponent();
-            choices.Add(new string[] { "hello", "open chrome", "shutdown"});
+            choices.Add(new string[] { "hello", "open chrome", "shutdown", "lights on", "lights off"});
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -76,6 +75,12 @@ namespace Windows_Assistant
                     break;
                 case "shutdown":
                     Application.Exit();
+                    break;
+                case "lights on":
+                    webObject.executeAction("bedroom_lights_on");
+                    break;
+                case "lights off":
+                    webObject.executeAction("bedroom_lights_off");
                     break;
                 default:
                     break;
