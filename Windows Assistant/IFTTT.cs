@@ -12,39 +12,31 @@ namespace Windows_Assistant
 {
     class IFTTT
     {
+        // https://www.youtube.com/watch?v=4uU62-BKa14&list=PL6tu16kXT9PrnRtsbMjadSzrM0f43Nx8W&index=3
         // key for webhooks api call.
-        string key = "cQ3xgk9nxLdnmZzs3VkXzv";
-        string baseRestUrl;
-        string action = "bedroom_lights_on";
+        string key;
+        
         RestClient client;
         RestRequest request;
         
         public bool executeAction(string a)
         {
-            setAction(a, baseRestUrl);
-
+            request = new RestRequest("{events}/with/key/{key}", Method.POST);
+            request.AddUrlSegment("key", key);
+            request.AddUrlSegment("events", a);
+            var content = client.Execute(request).Content;
             return true;
-        }
-
-        private string setAction(string a, string url)
-        {
-            return url.Replace("event", a);
-        }
-
-        private string setKey(string k, string url)
-        {
-            return url.Replace("webhookskey", k);
         }
 
         public IFTTT (string key, string baseRest)
         {
-            baseRestUrl = setKey(key, baseRest);
-            client = new RestClient(baseRestUrl);
-            request = new RestRequest("events/{events}", Method.POST);
-            MessageBox.Show(request.ToString());
-            request.AddUrlSegment("events", "bedroom_lights_off");
-            MessageBox.Show(request.ToString());
-
+            this.key = key;
+            //baseRestUrl = setKey(key, baseRest);
+            client = new RestClient(baseRest);
+            //request = new RestRequest("{events}/with/key/{key}", Method.POST);
+            //request.AddUrlSegment("key", key);
+            
+            
 
             //client.BaseAddress = new Uri(post);
             //HttpResponseMessage response = client.GetAsync()
