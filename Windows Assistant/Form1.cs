@@ -116,7 +116,7 @@ namespace Windows_Assistant
 
         private async void google_button_Click(object sender, EventArgs e)
         {
-            await voiceToText.StreamingMicRecognizeAsync(10, sender, e);
+            await voiceToText.StreamingMicRecognizeAsync(4, sender, e);
         }
 
         private void apitest_Click(object sender, EventArgs e)

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Google.Apis.Auth.OAuth2;
 
 namespace Windows_Assistant
 {
@@ -45,6 +46,7 @@ namespace Windows_Assistant
                         foreach (var alternative in result.Alternatives)
                         {
                             //TextOutput.Text += alternative.Transcript + "\n";
+                            Console.WriteLine(alternative.Transcript);
                         }
                     }
                 }
@@ -85,6 +87,7 @@ namespace Windows_Assistant
 
             await streamingCall.WriteCompleteAsync();
             await printResponses;
+            Console.WriteLine("Time expired.");
             return 0;
         }
 
