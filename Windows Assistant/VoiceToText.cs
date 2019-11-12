@@ -16,6 +16,8 @@ namespace Windows_Assistant
         // [START speech_transcribe_streaming_mic]
         public async Task<object> StreamingMicRecognizeAsync(int seconds, object s, EventArgs e)
         {
+            List<string> textTranslation = new List<string>();
+
             var speech = SpeechClient.Create();
             var streamingCall = speech.StreamingRecognize();
             // Write the initial request with the config.
@@ -30,11 +32,14 @@ namespace Windows_Assistant
                             RecognitionConfig.Types.AudioEncoding.Linear16,
                             SampleRateHertz = 16000,
                             LanguageCode = "en",
+                            Model = "command_and_search",
                         },
                         InterimResults = true,
+                        
                     }
                 });
             // Print responses as they arrive.
+            int count = 0;
             Task printResponses = Task.Run(async () =>
             {
                 while (await streamingCall.ResponseStream.MoveNext(
@@ -46,11 +51,31 @@ namespace Windows_Assistant
                         foreach (var alternative in result.Alternatives)
                         {
                             //TextOutput.Text += alternative.Transcript + "\n";
+                            textTranslation.Add(alternative.Transcript);
                             Console.WriteLine(alternative.Transcript);
+                            if(alternative.Transcript.Contains("activate"))
+                            {
+                                Console.WriteLine("Here.....");
+                                if(count >= 2)
+                                {
+                                    Console.WriteLine("Activated...");
+                                    throw new Exception();
+                                    
+                                }
+                                count++;
+                            }
                         }
                     }
                 }
             });
+
+            if (count >= 2)
+            {
+                Console.WriteLine("Escape.......");
+                return textTranslation;
+
+            }
+
             // Read from the microphone and stream to API.
             object writeLock = new object();
             bool writeMore = true;
@@ -75,6 +100,7 @@ namespace Windows_Assistant
                             }).Wait();
                     }
                 };
+
             waveIn.StartRecording();
             Console.WriteLine("Speak now.");
             await Task.Delay(TimeSpan.FromSeconds(seconds));
@@ -86,9 +112,11 @@ namespace Windows_Assistant
             }
 
             await streamingCall.WriteCompleteAsync();
-            await printResponses;
+            return await printResponses;
+
+
             Console.WriteLine("Time expired.");
-            return 0;
+            return textTranslation;
         }
 
 
