@@ -117,13 +117,30 @@ namespace Windows_Assistant
         private async void google_button_Click(object sender, EventArgs e)
         {
             List<string> textTranslation = new List<string>();
-            textTranslation = (List<string>)await voiceToText.Listen(20, sender, e);
-            foreach(string s in textTranslation)
+
+            // throws exception when 'activate' is heard
+            try
             {
-                TextOutput.Text += s;
+
+                await voiceToText.Listen(100, sender, e);
+
+
+            } catch (Exception)
+            {
+
+                textTranslation = (List<string>)await voiceToText.Activated(8, sender, e);
+
+                TextOutput.Text += textTranslation[textTranslation.Count - 1];
                 TextOutput.Text += Environment.NewLine;
-                Console.WriteLine(s);
+                foreach (string s in textTranslation)
+                {
+                    TextOutput.Text += s;
+                    TextOutput.Text += Environment.NewLine;
+                    Console.WriteLine(s);
+                }
+
             }
+            
 
 
         }
