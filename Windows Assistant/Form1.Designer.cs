@@ -1,6 +1,6 @@
 ﻿namespace Windows_Assistant
 {
-    partial class Form1
+    partial class UI
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.RecordButton = new System.Windows.Forms.Button();
             this.StopButton = new System.Windows.Forms.Button();
             this.TextOutput = new System.Windows.Forms.TextBox();
             this.TextInput = new System.Windows.Forms.TextBox();
@@ -36,25 +35,14 @@
             this.apitest = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // RecordButton
-            // 
-            this.RecordButton.Location = new System.Drawing.Point(12, 48);
-            this.RecordButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.RecordButton.Name = "RecordButton";
-            this.RecordButton.Size = new System.Drawing.Size(151, 68);
-            this.RecordButton.TabIndex = 0;
-            this.RecordButton.Text = "Record";
-            this.RecordButton.UseVisualStyleBackColor = true;
-            this.RecordButton.Click += new System.EventHandler(this.RecordButton_Click);
-            // 
             // StopButton
             // 
-            this.StopButton.Location = new System.Drawing.Point(806, 48);
+            this.StopButton.Location = new System.Drawing.Point(783, 46);
             this.StopButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.StopButton.Name = "StopButton";
             this.StopButton.Size = new System.Drawing.Size(151, 68);
             this.StopButton.TabIndex = 1;
-            this.StopButton.Text = "Stop";
+            this.StopButton.Text = "Exit";
             this.StopButton.UseVisualStyleBackColor = true;
             this.StopButton.Click += new System.EventHandler(this.StopButton_Click);
             // 
@@ -81,7 +69,7 @@
             // 
             // google_button
             // 
-            this.google_button.Location = new System.Drawing.Point(627, 48);
+            this.google_button.Location = new System.Drawing.Point(32, 48);
             this.google_button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.google_button.Name = "google_button";
             this.google_button.Size = new System.Drawing.Size(151, 68);
@@ -92,7 +80,7 @@
             // 
             // apitest
             // 
-            this.apitest.Location = new System.Drawing.Point(13, 13);
+            this.apitest.Location = new System.Drawing.Point(330, 12);
             this.apitest.Name = "apitest";
             this.apitest.Size = new System.Drawing.Size(150, 30);
             this.apitest.TabIndex = 5;
@@ -110,7 +98,6 @@
             this.Controls.Add(this.TextInput);
             this.Controls.Add(this.TextOutput);
             this.Controls.Add(this.StopButton);
-            this.Controls.Add(this.RecordButton);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -121,8 +108,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button RecordButton;
         private System.Windows.Forms.Button StopButton;
         private System.Windows.Forms.TextBox TextOutput;
         private System.Windows.Forms.TextBox TextInput;

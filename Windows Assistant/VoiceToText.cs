@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Google.Apis.Auth.OAuth2;
+using System.Media;
 
 namespace Windows_Assistant
 {
@@ -34,13 +35,13 @@ namespace Windows_Assistant
                             SampleRateHertz = 16000,
                             LanguageCode = "en",
                             Model = "command_and_search",
+                            EnableAutomaticPunctuation = true,
                         },
                         InterimResults = true,
                         
                     }
                 });
             // Print responses as they arrive.
-            int count = 0;
             Task printResponses = Task.Run(async () =>
             {
                 while (await streamingCall.ResponseStream.MoveNext(
@@ -51,32 +52,19 @@ namespace Windows_Assistant
                     {
                         foreach (var alternative in result.Alternatives)
                         {
-                            //TextOutput.Text += alternative.Transcript + "\n";
-                            textTranslation.Add(alternative.Transcript);
                             Console.WriteLine(alternative.Transcript);
                             if(alternative.Transcript.Contains("activate"))
                             {
-                                Console.WriteLine("Here.....");
-                                if(count >= 1)
-                                {
-                                    Console.WriteLine("Activated...");
-                                    token.Cancel();
-                                    return;
-                                    
-                                }
-                                count++;
+
+                                token.Cancel();
+                                return;
+                                
                             }
                         }
                     }
                 }
             });
 
-            if (count >= 1)
-            {
-                Console.WriteLine("Escape.......");
-                return textTranslation;
-
-            }
 
             // Read from the microphone and stream to API.
             object writeLock = new object();
@@ -84,30 +72,36 @@ namespace Windows_Assistant
             var waveIn = new NAudio.Wave.WaveInEvent();
             waveIn.DeviceNumber = 0;
             waveIn.WaveFormat = new NAudio.Wave.WaveFormat(16000, 1);
-            waveIn.DataAvailable +=
-                (object sender, NAudio.Wave.WaveInEventArgs args) =>
-                {
-                    lock (writeLock)
+            try
+            {
+                waveIn.DataAvailable +=
+                    (object sender, NAudio.Wave.WaveInEventArgs args) =>
                     {
-                        if (!writeMore)
+                        lock (writeLock)
                         {
-                            Console.WriteLine("no write more");
-                            return;
-                        }
-
-                        streamingCall.WriteAsync(
-                            new StreamingRecognizeRequest()
+                            if (!writeMore)
                             {
-                                AudioContent = Google.Protobuf.ByteString
-                                    .CopyFrom(args.Buffer, 0, args.BytesRecorded)
-                            }).Wait();
-                        Console.WriteLine("after writeAsync");
-                    }
-                    Console.WriteLine("after writelock");
-                };
+                                Console.WriteLine("no write more");
+                                return;
+                            }
 
+                            streamingCall.WriteAsync(
+                                new StreamingRecognizeRequest()
+                                {
+                                    AudioContent = Google.Protobuf.ByteString
+                                        .CopyFrom(args.Buffer, 0, args.BytesRecorded)
+                                }).Wait();
+                        //Console.WriteLine("after writeAsync");
+                    }
+                    //Console.WriteLine("after writelock");
+                };
+            } catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                Environment.Exit(0);
+            }
             waveIn.StartRecording();
-            Console.WriteLine("Speak now.");
+            Console.WriteLine("Listening..");
             
             await Task.Delay(TimeSpan.FromSeconds(seconds), token.Token);
             // Stop recording and shut down.
@@ -121,7 +115,8 @@ namespace Windows_Assistant
             await printResponses;
 
 
-            Console.WriteLine("Time expired.");
+            Console.WriteLine("Restarting..");
+            
             return textTranslation;
         }
 
@@ -148,6 +143,7 @@ namespace Windows_Assistant
                             SampleRateHertz = 16000,
                             LanguageCode = "en",
                             Model = "command_and_search",
+                            EnableAutomaticPunctuation = true,
                         },
                         InterimResults = true,
 
@@ -200,7 +196,8 @@ namespace Windows_Assistant
                 };
 
             waveIn.StartRecording();
-            Console.WriteLine("Speak now.");
+            SystemSounds.Beep.Play();
+            Console.WriteLine("Activated..");
             await Task.Delay(TimeSpan.FromSeconds(seconds));
             // Stop recording and shut down.
             waveIn.StopRecording();
@@ -213,7 +210,7 @@ namespace Windows_Assistant
             await printResponses;
 
 
-            Console.WriteLine("Time expired.");
+            Console.WriteLine("Interpreting..");
             return textTranslation;
         }
 
