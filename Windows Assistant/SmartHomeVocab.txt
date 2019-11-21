@@ -1,0 +1,13 @@
+﻿light
+lights
+hue
+bulb
+bright
+dim
+heater
+turn on
+turn off
+bedroom
+bathroom
+living room
+kitchen

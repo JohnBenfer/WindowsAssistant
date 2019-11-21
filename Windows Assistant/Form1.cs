@@ -13,6 +13,7 @@ namespace Windows_Assistant
     public partial class UI : Form
     {
         VoiceToText voiceToText = new VoiceToText();
+        ActionController actionController = new ActionController();
         bool speaking = false; // acts as a lock
 
         SpeechRecognitionEngine sre = new SpeechRecognitionEngine();
@@ -29,6 +30,7 @@ namespace Windows_Assistant
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            
             choices.Add(new string[] { "activate" });
             Grammar grammar = new Grammar(new GrammarBuilder(choices));
             sre.LoadGrammarAsync(grammar);
@@ -69,6 +71,7 @@ namespace Windows_Assistant
             }
             speaking = false;
             printResults(textTranslation);
+            actionController.NewRequest(textTranslation);
 
         }
 
