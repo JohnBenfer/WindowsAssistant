@@ -22,8 +22,9 @@ namespace Windows_Assistant
         public UI()
         {
             InitializeComponent();
-            google_button_Click(new object(), new EventArgs());
-            
+            //google_button_Click(new object(), new EventArgs());
+
+            detect_Speech();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -49,7 +50,18 @@ namespace Windows_Assistant
         }
 
 
-        
+        private void detect_Speech()
+        {
+
+            sre.SpeechDetected += Sre_SpeechDetected;
+
+        }
+
+        private void Sre_SpeechDetected(object sender, SpeechDetectedEventArgs e)
+        {
+            Console.WriteLine("speech detected..");
+            google_button_Click(sender, e);
+        }
 
         private async void google_button_Click(object sender, EventArgs e)
         {
@@ -60,8 +72,7 @@ namespace Windows_Assistant
                 try
                 {
                     
-                    await voiceToText.Listen(200, sender, e);
-                    await Task.Delay(190);
+                    await voiceToText.Listen(10, sender, e);
 
                 }
                 catch (Exception ex)
@@ -86,7 +97,7 @@ namespace Windows_Assistant
                     }
 
                 }
-
+                SystemExit = true;
             }
 
         }
