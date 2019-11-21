@@ -33,6 +33,7 @@
             this.TextInput = new System.Windows.Forms.TextBox();
             this.google_button = new System.Windows.Forms.Button();
             this.apitest = new System.Windows.Forms.Button();
+            this.WindowsAudio = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // StopButton
@@ -44,7 +45,7 @@
             this.StopButton.TabIndex = 1;
             this.StopButton.Text = "Exit";
             this.StopButton.UseVisualStyleBackColor = true;
-            this.StopButton.Click += new System.EventHandler(this.StopButton_Click);
+            this.StopButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
             // TextOutput
             // 
@@ -88,18 +89,29 @@
             this.apitest.UseVisualStyleBackColor = true;
             this.apitest.Click += new System.EventHandler(this.apitest_Click);
             // 
-            // Form1
+            // WindowsAudio
+            // 
+            this.WindowsAudio.Location = new System.Drawing.Point(517, 12);
+            this.WindowsAudio.Name = "WindowsAudio";
+            this.WindowsAudio.Size = new System.Drawing.Size(172, 31);
+            this.WindowsAudio.TabIndex = 6;
+            this.WindowsAudio.Text = "Windows Audio";
+            this.WindowsAudio.UseVisualStyleBackColor = true;
+            this.WindowsAudio.Click += new System.EventHandler(this.WindowsAudio_Click);
+            // 
+            // UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(968, 812);
+            this.Controls.Add(this.WindowsAudio);
             this.Controls.Add(this.apitest);
             this.Controls.Add(this.google_button);
             this.Controls.Add(this.TextInput);
             this.Controls.Add(this.TextOutput);
             this.Controls.Add(this.StopButton);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "Form1";
+            this.Name = "UI";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
@@ -113,6 +125,7 @@
         private System.Windows.Forms.TextBox TextInput;
         private System.Windows.Forms.Button google_button;
         private System.Windows.Forms.Button apitest;
+        private System.Windows.Forms.Button WindowsAudio;
     }
 }
 

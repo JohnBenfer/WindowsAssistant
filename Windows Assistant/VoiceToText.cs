@@ -12,7 +12,7 @@ namespace Windows_Assistant
 {
     class VoiceToText
     {
-        //public CancellationToken token = new CancellationToken();
+        
 
         // [START speech_transcribe_streaming_mic]
         public async Task<object> Listen(int seconds, object s, EventArgs e)
@@ -122,11 +122,14 @@ namespace Windows_Assistant
 
 
 
+        //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  // //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //
+
 
         // [START Listening for a command]
         public async Task<object> Activated(int seconds, object s, EventArgs e)
         {
             List<string> textTranslation = new List<string>();
+            //CancellationTokenSource token = new CancellationTokenSource();
 
             var speech = SpeechClient.Create();
             var streamingCall = speech.StreamingRecognize();
@@ -162,8 +165,17 @@ namespace Windows_Assistant
                         {
                             //TextOutput.Text += alternative.Transcript + "\n";
                             textTranslation.Add(alternative.Transcript);
-                            Console.WriteLine(alternative.Transcript);
                             
+                            Console.WriteLine(alternative.Transcript);
+                            //if (alternative.Transcript.Contains("."))
+                            //{
+                            //    count++;
+                            //    if (count > 1)
+                            //    {
+                            //        token.Cancel();
+                            //    }
+                            //}
+
                         }
                     }
                 }
@@ -197,7 +209,7 @@ namespace Windows_Assistant
 
             waveIn.StartRecording();
             SystemSounds.Beep.Play();
-            Console.WriteLine("Activated..");
+            Console.WriteLine("Speak Now..");
             await Task.Delay(TimeSpan.FromSeconds(seconds));
             // Stop recording and shut down.
             waveIn.StopRecording();
@@ -210,7 +222,7 @@ namespace Windows_Assistant
             await printResponses;
 
 
-            Console.WriteLine("Interpreting..");
+            Console.WriteLine("Calculating..");
             return textTranslation;
         }
 
