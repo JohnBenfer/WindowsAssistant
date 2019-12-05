@@ -11,3 +11,4 @@ bedroom
 bathroom
 living room
 kitchen
+smart plug

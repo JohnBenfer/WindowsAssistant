@@ -128,9 +128,6 @@ namespace Windows_Assistant
         private void detect_Speech()
         {
             Console.WriteLine("aqui");
-            
-
-
 
         }
 

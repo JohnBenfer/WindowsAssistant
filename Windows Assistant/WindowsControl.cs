@@ -8,5 +8,11 @@ namespace Windows_Assistant
 {
     class WindowsControl
     {
+
+        public static void process(string command)
+        {
+
+            return;
+        }
     }
 }

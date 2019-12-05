@@ -1,4 +1,5 @@
 ﻿Open
+Close
 Chrome
 Spotify
 File Explorer
