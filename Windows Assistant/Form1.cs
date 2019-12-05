@@ -96,8 +96,6 @@ namespace Windows_Assistant
                 SystemSounds.Beep.Play();
                 TextOutput.Text += "No new command..";
             }
-
-            
         }
 
         private void WindowsAudio_Click(object sender, EventArgs e)
@@ -107,8 +105,6 @@ namespace Windows_Assistant
             sre.RecognizeAsync(RecognizeMode.Multiple);
 
         }
-
-
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
@@ -175,8 +171,8 @@ namespace Windows_Assistant
         {
 
             webObject.executeAction("bedroom_lights_on");
-            ApiHelper api = new ApiHelper("https://api.sonos.com/");
-            TextOutput.Text += api.execute();
+            //ApiHelper api = new ApiHelper("https://api.sonos.com/");
+            //TextOutput.Text += api.execute();
             //SystemSounds.Beep.Play(); // same
             //SystemSounds.Asterisk.Play(); // same
             SystemSounds.Hand.Play(); // different

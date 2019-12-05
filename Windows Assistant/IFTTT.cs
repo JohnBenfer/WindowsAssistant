@@ -19,11 +19,20 @@ namespace Windows_Assistant
         RestClient client;
         RestRequest request;
         
-        public bool executeAction(string a)
+        public bool executeAction(string trigger)
         {
             request = new RestRequest("{events}/with/key/{key}", Method.POST);
             request.AddUrlSegment("key", key);
-            request.AddUrlSegment("events", a);
+            request.AddUrlSegment("events", trigger);
+            var content = client.Execute(request).Content;
+            return true;
+        }
+
+        public bool executeAction(string trigger, string value1)
+        {
+            request = new RestRequest("{events}/with/key/{key}", Method.POST);
+            request.AddUrlSegment("key", key);
+            request.AddUrlSegment("events", trigger);
             var content = client.Execute(request).Content;
             return true;
         }
