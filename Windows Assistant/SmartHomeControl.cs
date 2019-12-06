@@ -5,6 +5,20 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
+/*
+ * set_playbar_volume + value
+ * 
+ * playbar_volume_up
+ * 
+ * playbar_volume_down
+ * 
+ * bedroom_lights_off
+ * 
+ * bedroom_lights_on
+ * 
+ * bedroom_lights_dim
+ */
+
 namespace Windows_Assistant
 {
     class SmartHomeControl
@@ -18,15 +32,44 @@ namespace Windows_Assistant
         public void process(string command)
         {
 
-            if(command.Contains("SET PLAYBAR VOLUME") || command.Contains("SET PLAY BAR VOLUME"))
+            if(command.Contains("SET PLAYBAR VOLUME") || command.Contains("SET PLAY BAR VOLUME") || command.Contains("SET THE PLAYBAR VOLUME") || command.Contains("SET THE PLAY BAR VOLUME") || command.Contains("SET THE VOLUME IN THE BEDROOM"))
             {
                 SetPlaybarVolume(command);
-
+            }
+            else if(command.Contains("PLAYBAR VOLUME UP") || command.Contains("TURN UP PLAYBAR") || command.Contains("TURN UP PLAY BAR") || command.Contains("TURN UP THE PLAYBAR") || command.Contains("TURN UP THE PLAY BAR") || command.Contains("TURN UP THE VOLUME IN THE BEDROOM"))
+            {
+                PlaybarVolumeUp();
+                Console.WriteLine("vol up");
+            } else if(command.Contains("PLAYBAR VOLUME DOWN") || command.Contains("TURN DOWN PLAYBAR") || command.Contains("TURN DOWN PLAY BAR") || command.Contains("TURN DOWN THE PLAYBAR") || command.Contains("TURN DOWN THE PLAY BAR") || command.Contains("TURN DOWN THE VOLUME IN THE BEDROOM"))
+            {
+                PlaybarVolumeDown();
+                Console.WriteLine("vol down");
+            } else if(command.Contains("TURN OFF THE BEDROOM LIGHTS") || command.Contains("TURN THE BEDROOM LIGHTS OFF") || command.Contains("TURN OFF THE LIGHTS") || command.Contains("TURN LIGHTS OFF"))
+            {
+                BedroomLightsOff();
+            }
+            else if (command.Contains("TURN ON THE BEDROOM LIGHTS") || command.Contains("TURN THE BEDROOM LIGHTS ON") || command.Contains("TURN ON THE LIGHTS") || command.Contains("TURN LIGHTS ON"))
+            {
+                BedroomLightsOn();
             }
 
             return;
         }
 
+        private void BedroomLightsOff()
+        {
+            webObjects.executeAction("bedroom_lights_off");
+        }
+
+        private void BedroomLightsOn()
+        {
+            webObjects.executeAction("bedroom_lights_on");
+        }
+
+        /// <summary>
+        /// sets playbar volume to defined amount
+        /// </summary>
+        /// <param name="command">the voice command</param>
         private void SetPlaybarVolume(string command)
         {
             try
@@ -40,6 +83,22 @@ namespace Windows_Assistant
                 // maybe implement asking the user to enter the desired volume
                 Console.WriteLine("No volume set");
             }
+        }
+
+        /// <summary>
+        /// turns up the playbar volume
+        /// </summary>
+        private void PlaybarVolumeUp()
+        {
+            webObjects.executeAction("playbar_volume_up");
+        }
+
+        /// <summary>
+        /// turns down the playbar volume
+        /// </summary>
+        private void PlaybarVolumeDown()
+        {
+            webObjects.executeAction("playbar_volume_down");
         }
 
 
