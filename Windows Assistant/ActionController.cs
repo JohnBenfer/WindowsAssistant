@@ -13,6 +13,8 @@ namespace Windows_Assistant
         private List<string> SmartHomeVocab = new List<string>();
         private List<string> WindowsVocab = new List<string>();
 
+        SmartHomeControl smc = new SmartHomeControl();
+
         enum RequestType { Windows, SmartHome, Unknown };
 
         public ActionController()
@@ -47,7 +49,7 @@ namespace Windows_Assistant
             switch (requestType)
             {
                 case RequestType.SmartHome:
-                    SmartHomeControl.process(request);
+                    smc.process(request);
                     Console.WriteLine("Smart Home request");
                     return;
                 case RequestType.Windows:

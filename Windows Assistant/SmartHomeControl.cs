@@ -33,7 +33,7 @@ namespace Windows_Assistant
             {
                 int volume = Convert.ToInt32(Regex.Replace(command, "[^0-9]+", string.Empty));
                 Console.WriteLine("Sonos volume: " + volume);
-                webObjects.executeAction("playbar_volume_set", volume.ToString());
+                webObjects.executeAction("set_playbar_volume", volume.ToString());
             }
             catch
             {

@@ -30,10 +30,11 @@ namespace Windows_Assistant
 
         public bool executeAction(string trigger, string value1)
         {
-            request = new RestRequest("{events}/with/key/{key}?value1={value1}", Method.POST);
+            request = new RestRequest("{events}/with/key/{key}?", Method.POST);
             request.AddUrlSegment("key", key);
             request.AddUrlSegment("events", trigger);
-            request.AddUrlSegment("value1", value1);
+            //request.AddUrlSegment("value1", value1);
+            request.AddQueryParameter("value1", value1);
             var content = client.Execute(request).Content;
             return true;
         }
