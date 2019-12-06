@@ -9,22 +9,37 @@ namespace Windows_Assistant
 {
     class SmartHomeControl
     {
-        IFTTT webObject = new IFTTT("cQ3xgk9nxLdnmZzs3VkXzv", "https://maker.ifttt.com/trigger/");
-
-        string command;
-        public SmartHomeControl(string command)
+        IFTTT webObjects = new IFTTT("cQ3xgk9nxLdnmZzs3VkXzv", "https://maker.ifttt.com/trigger/");
+        public SmartHomeControl()
         {
-            this.command = command;
+            
         }
 
-        public static void process(string command)
+        public void process(string command)
         {
-            if(command.Contains("SET PLAYBAR VOLUME"))
+
+            if(command.Contains("SET PLAYBAR VOLUME") || command.Contains("SET PLAY BAR VOLUME"))
             {
-                int volume = Convert.ToInt32(Regex.Replace(command, "[^0-9]+", string.Empty));
+                SetPlaybarVolume(command);
 
             }
+
             return;
+        }
+
+        private void SetPlaybarVolume(string command)
+        {
+            try
+            {
+                int volume = Convert.ToInt32(Regex.Replace(command, "[^0-9]+", string.Empty));
+                Console.WriteLine("Sonos volume: " + volume);
+                webObjects.executeAction("playbar_volume_set", volume.ToString());
+            }
+            catch
+            {
+                // maybe implement asking the user to enter the desired volume
+                Console.WriteLine("No volume set");
+            }
         }
 
 
