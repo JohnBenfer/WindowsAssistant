@@ -14,6 +14,7 @@ namespace Windows_Assistant
         private List<string> WindowsVocab = new List<string>();
 
         SmartHomeControl smc = new SmartHomeControl();
+        WindowsControl wc = new WindowsControl();
 
         enum RequestType { Windows, SmartHome, Unknown };
 
@@ -53,7 +54,7 @@ namespace Windows_Assistant
                     Console.WriteLine("Smart Home request");
                     return;
                 case RequestType.Windows:
-                    WindowsControl.process(request);
+                    wc.process(request);
                     Console.WriteLine("Windows request");
                     return;
                 case RequestType.Unknown:

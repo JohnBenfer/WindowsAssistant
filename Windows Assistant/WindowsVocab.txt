@@ -6,3 +6,5 @@ File Explorer
 File
 Exit
 Quit
+Turn up the volume
+Turn down the volume

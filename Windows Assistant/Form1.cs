@@ -30,7 +30,9 @@ namespace Windows_Assistant
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
+            WindowsControl wc = new WindowsControl();
+            wc.process("EXIT NOTEPAD");
             choices.Add(new string[] { "activate" });
             Grammar grammar = new Grammar(new GrammarBuilder(choices));
             sre.LoadGrammarAsync(grammar);
