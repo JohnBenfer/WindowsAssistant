@@ -17,6 +17,10 @@ using System.Threading.Tasks;
  * bedroom_lights_on
  * 
  * bedroom_lights_dim
+ * 
+ * livingroom_lights_on
+ * 
+ * livingroom_lights_off
  */
 
 namespace Windows_Assistant
@@ -51,16 +55,41 @@ namespace Windows_Assistant
             else if (command.Contains("TURN ON THE BEDROOM LIGHTS") || command.Contains("TURN THE BEDROOM LIGHTS ON") || command.Contains("TURN ON THE LIGHTS") || command.Contains("TURN LIGHTS ON"))
             {
                 BedroomLightsOn();
+            } else if (command.Contains("TURN ON THE LIVING ROOM LIGHTS") || command.Contains("TURN THE LIVING ROOM LIGHTS ON") || command.Contains("TURN ON THE LIGHTS IN THE LIVING ROOM") || command.Contains("TURN LIGHTS ON IN LIVING ROOM"))
+            {
+                LivingRoomLightsOn();
+            }
+            else if (command.Contains("TURN OFF THE LIVING ROOM LIGHTS") || command.Contains("TURN THE LIVING ROOM LIGHTS OFF") || command.Contains("TURN OFF THE LIGHTS IN THE LIVING ROOM") || command.Contains("TURN LIGHTS OFF IN LIVING ROOM"))
+            {
+                LivingRoomLightsOn();
             }
 
             return;
         }
 
+        private void LivingRoomLightsOn()
+        {
+            webObjects.executeAction("livingroom_lights_on");
+
+        }
+
+        private void LivingRoomLightsOff()
+        {
+            webObjects.executeAction("livingroom_lights_off");
+
+        }
+
+        /// <summary>
+        /// turns off bedroom lights
+        /// </summary>
         private void BedroomLightsOff()
         {
             webObjects.executeAction("bedroom_lights_off");
         }
 
+        /// <summary>
+        /// turns on bedroom lights to 100% brightness
+        /// </summary>
         private void BedroomLightsOn()
         {
             webObjects.executeAction("bedroom_lights_on");
