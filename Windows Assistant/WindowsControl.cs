@@ -14,19 +14,30 @@ namespace Windows_Assistant
         public void process(string command)
         {
 
-            if (command.Equals("EXIT") || command.Equals("QUIT"))
+            if (command.Equals("EXIT") || command.Equals("QUIT") || command.Equals("CLOSE"))
             {
                 Application.Exit();
             } else if (command.Contains("OPEN") || command.Contains("LAUNCH") || command.Contains("OPEN UP") || command.Contains("START")) {
-                if(command.Contains("CHROME") || command.Contains("GOOGLE") || command.Contains("GOOGLE CHROME"))
+                if (command.Contains("CHROME") || command.Contains("GOOGLE") || command.Contains("GOOGLE CHROME"))
                 {
                     LaunchApplication("CHROME");
-                } else if(command.Contains("SPOTIFY"))
+                } else if (command.Contains("SPOTIFY"))
                 {
                     LaunchApplication("SPOTIFY");
-                } else if(command.Contains("VISUAL STUDIO"))
+                } else if (command.Contains("VISUAL STUDIO 2015"))
                 {
                     LaunchApplication("VISUAL STUDIO 2015");
+                } else if (command.Contains("NOTEPAD") || command.Contains("NOTEPAD PLUS PLUS") || command.Contains("NOTEPAD++"))
+                {
+                    LaunchApplication("NOTEPAD++");
+                }
+                else if (command.Contains("LIGHTROOM") || command.Contains("ADOBE LIGHTROOM") || command.Contains("LIGHTROOM CLASSIC"))
+                {
+                    LaunchApplication("LIGHTROOM");
+                }
+                else if (command.Contains("POSTMAN"))
+                {
+                    LaunchApplication("POSTMAN");
                 }
             } else if (command.Contains("EXIT") || command.Contains("QUIT") || command.Contains("CLOSE"))
             {
@@ -41,10 +52,28 @@ namespace Windows_Assistant
                     ExitApplication("Notepad++");
                 } else if (command.Contains("VISUAL STUDIO 2015") || command.Contains("VISUAL STUDIO")) {
                     ExitApplication("Visual Studio 2015");
-                } else
+                }
+                else if (command.Contains("POSTMAN"))
+                {
+                    ExitApplication("POSTMAN");
+                }
+                else if (command.Contains("LIGHTROOM") || command.Contains("ADOBE LIGHTROOM") || command.Contains("LIGHTROOM CLASSIC"))
+                {
+                    ExitApplication("Lightroom");
+                }
+                else
                 {
                     MessageBox.Show("Application not found");
                 }
+            } else if(command.Contains("PLAY SPOTIFY") || command.Contains("PLAY MUSIC") || command.Contains("PLAY SOME MUSIC") || command.Contains("PLAY SOME SPOTIFY"))
+            {
+                if(command.Contains("PLAYBAR"))
+                {
+
+                }
+            } else
+            {
+                MessageBox.Show("Command not found..");
             }
 
 

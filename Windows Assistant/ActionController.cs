@@ -45,7 +45,13 @@ namespace Windows_Assistant
 
         public void NewRequest(List<string> textTranslation)
         {
+            if(textTranslation.Count == 0)
+            {
+                return;
+            }
+
             string request = textTranslation[textTranslation.Count - 1].ToUpper();
+
             RequestType requestType = Windows_or_SmartHome(request);
             switch (requestType)
             {

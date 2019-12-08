@@ -193,6 +193,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="readme.txt" />
     <Content Include="SmartHomeVocab.txt" />
     <Content Include="WindowsVocab.txt" />
   </ItemGroup>

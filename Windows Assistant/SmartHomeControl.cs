@@ -21,6 +21,10 @@ using System.Threading.Tasks;
  * livingroom_lights_on
  * 
  * livingroom_lights_off
+ * 
+ * bedroom_heater_on
+ * 
+ * bedroom_heater_off
  */
 
 namespace Windows_Assistant
@@ -36,19 +40,22 @@ namespace Windows_Assistant
         public void process(string command)
         {
 
-            if(command.Contains("SET PLAYBAR VOLUME") || command.Contains("SET PLAY BAR VOLUME") || command.Contains("SET THE PLAYBAR VOLUME") || command.Contains("SET THE PLAY BAR VOLUME") || command.Contains("SET THE VOLUME IN THE BEDROOM"))
+            if(command.Contains("PLAYBAR") || command.Contains("PLAY BAR") || (command.Contains("BEDROOM") && command.Contains("VOLUME")))
             {
-                SetPlaybarVolume(command);
-            }
-            else if(command.Contains("PLAYBAR VOLUME UP") || command.Contains("TURN UP PLAYBAR") || command.Contains("TURN UP PLAY BAR") || command.Contains("TURN UP THE PLAYBAR") || command.Contains("TURN UP THE PLAY BAR") || command.Contains("TURN UP THE VOLUME IN THE BEDROOM"))
-            {
-                PlaybarVolumeUp();
-                Console.WriteLine("vol up");
-            } else if(command.Contains("PLAYBAR VOLUME DOWN") || command.Contains("TURN DOWN PLAYBAR") || command.Contains("TURN DOWN PLAY BAR") || command.Contains("TURN DOWN THE PLAYBAR") || command.Contains("TURN DOWN THE PLAY BAR") || command.Contains("TURN DOWN THE VOLUME IN THE BEDROOM"))
-            {
-                PlaybarVolumeDown();
-                Console.WriteLine("vol down");
-            } else if(command.Contains("TURN OFF THE BEDROOM LIGHTS") || command.Contains("TURN THE BEDROOM LIGHTS OFF") || command.Contains("TURN OFF THE LIGHTS") || command.Contains("TURN LIGHTS OFF"))
+                if(command.Contains("UP"))
+                {
+                    PlaybarVolumeUp();
+                    Console.WriteLine("vol up");
+                } else if(command.Contains("DOWN"))
+                {
+                    PlaybarVolumeDown();
+                    Console.WriteLine("vol down");
+                } else if(command.Contains("SET"))
+                {
+                    SetPlaybarVolume(command);
+                }
+            } 
+            else if(command.Contains("TURN OFF THE BEDROOM LIGHTS") || command.Contains("TURN THE BEDROOM LIGHTS OFF") || command.Contains("TURN OFF THE LIGHTS") || command.Contains("TURN LIGHTS OFF"))
             {
                 BedroomLightsOff();
             }
@@ -62,9 +69,28 @@ namespace Windows_Assistant
             else if (command.Contains("TURN OFF THE LIVING ROOM LIGHTS") || command.Contains("TURN THE LIVING ROOM LIGHTS OFF") || command.Contains("TURN OFF THE LIGHTS IN THE LIVING ROOM") || command.Contains("TURN LIGHTS OFF IN LIVING ROOM"))
             {
                 LivingRoomLightsOn();
+            } else if(command.Contains("HEATER") || command.Contains("BEDROOM HEATER"))
+            {
+                if (command.Contains("TURN ON"))
+                {
+                    BedroomHeaterOn();
+                } else if (command.Contains("TURN OFF"))
+                {
+                    BedroomHeaterOff();
+                }
             }
 
             return;
+        }
+
+        private void BedroomHeaterOn()
+        {
+            webObjects.executeAction("bedroom_heater_on");
+        }
+
+        private void BedroomHeaterOff()
+        {
+            webObjects.executeAction("bedroom_heater_off");
         }
 
         private void LivingRoomLightsOn()

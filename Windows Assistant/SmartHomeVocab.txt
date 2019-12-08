@@ -1,9 +1,11 @@
 ﻿light
 lights
+lights
 hue
 bulb
 bright
 dim
+heater
 heater
 turn on
 turn off
@@ -13,10 +15,19 @@ living room
 kitchen
 smart plug
 playbar
+playbar
+playbar
 sonos
 playbar volume
 play bar
+play bar
 play
+play five
 play five
 play one
 sonos one
+sonos one
+turn up playbar
+playbar up
+turn down playbar
+playbar down

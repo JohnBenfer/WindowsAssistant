@@ -1,10 +1,18 @@
 ﻿Open
 Close
+close
+close
 Chrome
 Spotify
 File Explorer
 File
 Exit
+exit
+exit
 Quit
+quit
+quit
 Turn up the volume
 Turn down the volume
+Play Spotify
+Play music
