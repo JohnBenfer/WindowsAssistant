@@ -19,7 +19,6 @@ namespace Windows_Assistant
         SpeechRecognitionEngine sre = new SpeechRecognitionEngine();
         Choices choices = new Choices();
 
-        IFTTT webObject = new IFTTT("cQ3xgk9nxLdnmZzs3VkXzv", "https://maker.ifttt.com/trigger/");
         public bool SystemExit = false;
 
         public UI()
@@ -30,14 +29,10 @@ namespace Windows_Assistant
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
-            WindowsControl wc = new WindowsControl();
-            wc.process("EXIT NOTEPAD");
             choices.Add(new string[] { "activate" });
             Grammar grammar = new Grammar(new GrammarBuilder(choices));
             sre.LoadGrammarAsync(grammar);
             sre.SetInputToDefaultAudioDevice();
-            //sre.SpeechDetected += Sre_SpeechDetected;
             sre.SpeechRecognized += Sre_SpeechRecognized;
             WindowsAudio_Click(sender, e);
 
@@ -51,7 +46,6 @@ namespace Windows_Assistant
                 if (e.Result.Text.Equals("activate"))
                 {
                     Console.WriteLine(e.Result.Text + "..");
-                    //google_button_Click(sender, e);
                     speaking = true;
                     VoiceActivated(sender, e);
                 }
@@ -60,17 +54,19 @@ namespace Windows_Assistant
 
         private async void VoiceActivated(object sender, EventArgs e)
         {
+            this.Text = "Listening...";            
             List<string> textTranslation = new List<string>();
             
             try
             {
-                textTranslation = (List<string>)await voiceToText.Activated(8, sender, e);
+                textTranslation = (List<string>)await voiceToText.Activated(7, sender, e);
                 SystemSounds.Hand.Play();
             } catch (Exception ex)
             {
                 Console.WriteLine(ex.InnerException);
                 
             }
+            this.Text = "Voice Assistant";
             speaking = false;
             printResults(textTranslation);
             actionController.NewRequest(textTranslation);
@@ -95,7 +91,6 @@ namespace Windows_Assistant
             else
             {
                 // no new command found..
-                SystemSounds.Beep.Play();
                 TextOutput.Text += "No new command..";
             }
         }
@@ -134,54 +129,9 @@ namespace Windows_Assistant
             //Console.WriteLine("speech detected..");
         }
 
-        private async void google_button_Click(object sender, EventArgs e)
+        private void ActivateButton_Click(object sender, EventArgs e)
         {
-            while (!SystemExit)
-            {
-                List<string> textTranslation = new List<string>();
-                // throws exception when 'activate' is heard
-                try
-                {
-                    
-                    await voiceToText.Listen(10, sender, e);
-
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Here is the exception................. " + ex.ToString());
-                    TextOutput.Clear();
-                    textTranslation = (List<string>)await voiceToText.Activated(8, sender, e);
-                    if (textTranslation.Count > 0)
-                    {
-                        TextOutput.Text += textTranslation[textTranslation.Count - 1];
-                    }
-                    TextOutput.Text += Environment.NewLine;
-                    foreach (string s in textTranslation)
-                    {
-                        TextOutput.Text += s;
-                        TextOutput.Text += Environment.NewLine;
-                        Console.WriteLine(s);
-                    }
-
-                }
-                SystemExit = true;
-            }
-
+            VoiceActivated(sender, e);
         }
-
-        private void apitest_Click(object sender, EventArgs e)
-        {
-
-            webObject.executeAction("bedroom_lights_on");
-            //ApiHelper api = new ApiHelper("https://api.sonos.com/");
-            //TextOutput.Text += api.execute();
-            //SystemSounds.Beep.Play(); // same
-            //SystemSounds.Asterisk.Play(); // same
-            SystemSounds.Hand.Play(); // different
-            //SystemSounds.Question.Play(); // no sound
-            //SystemSounds.Exclamation.Play(); // same
-        }
-
-
     }
 }
