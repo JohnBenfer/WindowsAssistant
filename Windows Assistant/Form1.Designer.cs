@@ -55,7 +55,7 @@
             // 
             this.StopButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StopButton.ForeColor = System.Drawing.Color.Red;
-            this.StopButton.Location = new System.Drawing.Point(467, 30);
+            this.StopButton.Location = new System.Drawing.Point(467, 7);
             this.StopButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.StopButton.Name = "StopButton";
             this.StopButton.Size = new System.Drawing.Size(101, 36);
@@ -67,7 +67,7 @@
             // TextOutput
             // 
             this.TextOutput.HideSelection = false;
-            this.TextOutput.Location = new System.Drawing.Point(3, 70);
+            this.TextOutput.Location = new System.Drawing.Point(3, 47);
             this.TextOutput.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextOutput.Multiline = true;
             this.TextOutput.Name = "TextOutput";
@@ -75,11 +75,10 @@
             this.TextOutput.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.TextOutput.Size = new System.Drawing.Size(351, 204);
             this.TextOutput.TabIndex = 2;
-            this.TextOutput.Visible = false;
             // 
             // TextInput
             // 
-            this.TextInput.Location = new System.Drawing.Point(3, 30);
+            this.TextInput.Location = new System.Drawing.Point(3, 7);
             this.TextInput.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextInput.Multiline = true;
             this.TextInput.Name = "TextInput";
@@ -91,7 +90,7 @@
             // 
             this.ActivateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ActivateButton.ForeColor = System.Drawing.Color.ForestGreen;
-            this.ActivateButton.Location = new System.Drawing.Point(360, 30);
+            this.ActivateButton.Location = new System.Drawing.Point(360, 7);
             this.ActivateButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ActivateButton.Name = "ActivateButton";
             this.ActivateButton.Size = new System.Drawing.Size(101, 36);
@@ -104,7 +103,7 @@
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.button1.Location = new System.Drawing.Point(360, 70);
+            this.button1.Location = new System.Drawing.Point(360, 47);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(101, 48);
@@ -116,7 +115,7 @@
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.button2.Location = new System.Drawing.Point(467, 70);
+            this.button2.Location = new System.Drawing.Point(467, 47);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(101, 48);
@@ -128,7 +127,7 @@
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.button3.Location = new System.Drawing.Point(360, 122);
+            this.button3.Location = new System.Drawing.Point(360, 99);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(101, 48);
@@ -140,7 +139,7 @@
             // 
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.button4.Location = new System.Drawing.Point(467, 122);
+            this.button4.Location = new System.Drawing.Point(467, 99);
             this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(101, 48);
@@ -152,7 +151,7 @@
             // 
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.button5.Location = new System.Drawing.Point(360, 174);
+            this.button5.Location = new System.Drawing.Point(360, 151);
             this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(101, 48);
@@ -164,7 +163,7 @@
             // 
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.button6.Location = new System.Drawing.Point(467, 174);
+            this.button6.Location = new System.Drawing.Point(467, 151);
             this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(101, 48);
@@ -176,7 +175,7 @@
             // 
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.button7.Location = new System.Drawing.Point(360, 226);
+            this.button7.Location = new System.Drawing.Point(360, 203);
             this.button7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(101, 48);
@@ -188,7 +187,7 @@
             // 
             this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button8.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.button8.Location = new System.Drawing.Point(467, 226);
+            this.button8.Location = new System.Drawing.Point(467, 203);
             this.button8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(101, 48);
@@ -208,7 +207,7 @@
             this.MainTabControl.Name = "MainTabControl";
             this.MainTabControl.Padding = new System.Drawing.Point(6, 4);
             this.MainTabControl.SelectedIndex = 0;
-            this.MainTabControl.Size = new System.Drawing.Size(585, 315);
+            this.MainTabControl.Size = new System.Drawing.Size(585, 290);
             this.MainTabControl.TabIndex = 22;
             // 
             // MainTab
@@ -228,7 +227,7 @@
             this.MainTab.Location = new System.Drawing.Point(4, 27);
             this.MainTab.Name = "MainTab";
             this.MainTab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.MainTab.Size = new System.Drawing.Size(577, 284);
+            this.MainTab.Size = new System.Drawing.Size(577, 259);
             this.MainTab.TabIndex = 0;
             this.MainTab.Text = "Main";
             this.MainTab.UseVisualStyleBackColor = true;
@@ -285,7 +284,7 @@
             this.AcceptButton = this.ActivateButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(583, 320);
+            this.ClientSize = new System.Drawing.Size(583, 293);
             this.Controls.Add(this.MainTabControl);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "UI";
