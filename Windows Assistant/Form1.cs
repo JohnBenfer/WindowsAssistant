@@ -5,8 +5,7 @@ using System.Speech.Recognition;
 using System.Speech.Synthesis;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-
+using Microsoft.Win32;
 
 namespace Windows_Assistant
 {
@@ -132,6 +131,21 @@ namespace Windows_Assistant
         private void ActivateButton_Click(object sender, EventArgs e)
         {
             VoiceActivated(sender, e);
+        }
+
+        private void checkRunOnStart_CheckedChanged(object sender, EventArgs e)
+        {
+            RegistryKey rk = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+            Console.WriteLine(Application.ProductName);
+
+            if (checkRunOnStart.Checked)
+            {
+                rk.SetValue(Application.ProductName, Application.ExecutablePath);
+            }
+            else
+            {
+                rk.DeleteValue(Application.ProductName, false);
+            }
         }
     }
 }
