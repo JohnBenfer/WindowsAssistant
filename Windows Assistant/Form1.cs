@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Media;
 using System.Speech.Recognition;
 using System.Speech.Synthesis;
@@ -28,7 +29,11 @@ namespace Windows_Assistant
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            // sets the start postion of the window
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = new Point(1500, 340);
+
+            // sets the run on startup checkbox accordingly
             try
             {
                 Console.WriteLine(rk.GetValue(Application.ProductName).ToString());
