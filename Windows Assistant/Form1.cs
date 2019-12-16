@@ -18,7 +18,6 @@ namespace Windows_Assistant
         SpeechRecognitionEngine sre = new SpeechRecognitionEngine();
         Choices choices = new Choices();
 
-        MyCheckBox RunOnStartup = new MyCheckBox();
         RegistryKey rk = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
 
         public UI()
@@ -29,15 +28,23 @@ namespace Windows_Assistant
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            RunOnStartup.Location = new System.Drawing.Point(10, 10);
             
-            if(rk.ValueCount == 2)
+            try
             {
+                Console.WriteLine(rk.GetValue(Application.ProductName).ToString());
                 checkRunOnStart.CheckState = CheckState.Checked;
-            } else
+            } catch
             {
                 checkRunOnStart.CheckState = CheckState.Unchecked;
             }
+
+            //if(rk.ValueCount == 2)
+            //{
+            //    checkRunOnStart.CheckState = CheckState.Checked;
+            //} else
+            //{
+            //    checkRunOnStart.CheckState = CheckState.Unchecked;
+            //}
             choices.Add(new string[] { "activate" });
             Grammar grammar = new Grammar(new GrammarBuilder(choices));
             sre.LoadGrammarAsync(grammar);
