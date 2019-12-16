@@ -18,6 +18,10 @@ using System.Threading.Tasks;
  * 
  * bedroom_lights_dim
  * 
+ * bathroom_lights_on
+ * 
+ * bathroom_lights_off
+ * 
  * livingroom_lights_on
  * 
  * livingroom_lights_off
@@ -53,23 +57,12 @@ namespace Windows_Assistant
                 } else if(command.Contains("SET"))
                 {
                     SetPlaybarVolume(command);
+                } else if(command.Contains("MUTE"))
+                {
+                    SetPlaybarVolume("0");
                 }
             } 
-            else if(command.Contains("TURN OFF THE BEDROOM LIGHTS") || command.Contains("TURN THE BEDROOM LIGHTS OFF") || command.Contains("TURN OFF THE LIGHTS") || command.Contains("TURN LIGHTS OFF"))
-            {
-                BedroomLightsOff();
-            }
-            else if (command.Contains("TURN ON THE BEDROOM LIGHTS") || command.Contains("TURN THE BEDROOM LIGHTS ON") || command.Contains("TURN ON THE LIGHTS") || command.Contains("TURN LIGHTS ON"))
-            {
-                BedroomLightsOn();
-            } else if (command.Contains("TURN ON THE LIVING ROOM LIGHTS") || command.Contains("TURN THE LIVING ROOM LIGHTS ON") || command.Contains("TURN ON THE LIGHTS IN THE LIVING ROOM") || command.Contains("TURN LIGHTS ON IN LIVING ROOM"))
-            {
-                LivingRoomLightsOn();
-            }
-            else if (command.Contains("TURN OFF THE LIVING ROOM LIGHTS") || command.Contains("TURN THE LIVING ROOM LIGHTS OFF") || command.Contains("TURN OFF THE LIGHTS IN THE LIVING ROOM") || command.Contains("TURN LIGHTS OFF IN LIVING ROOM"))
-            {
-                LivingRoomLightsOn();
-            } else if(command.Contains("HEATER") || command.Contains("BEDROOM HEATER"))
+            else if(command.Contains("HEATER") || command.Contains("BEDROOM HEATER"))
             {
                 if (command.Contains("TURN ON"))
                 {
@@ -78,47 +71,126 @@ namespace Windows_Assistant
                 {
                     BedroomHeaterOff();
                 }
+            } else if(command.Contains("LIGHT") || command.Contains("LIGHTS") || command.Contains("LAMP"))
+            {
+                if(command.Contains("ON"))
+                {
+                    if(command.Contains("BEDROOM"))
+                    {
+                        BedroomLightsOn();
+                    } else if (command.Contains("BATHROOM"))
+                    {
+                        BathroomLightsOn();
+                    } else if (command.Contains("LIVING ROOM"))
+                    {
+                        LivingRoomLightsOn();
+                    } else
+                    {
+                        BedroomLightsOn();
+                    }
+                } else if (command.Contains("OFF"))
+                {
+                    if (command.Contains("BEDROOM"))
+                    {
+                        BedroomLightsOff();
+                    }
+                    else if (command.Contains("BATHROOM"))
+                    {
+                        BathroomLightsOff();
+                    }
+                    else if (command.Contains("LIVING ROOM"))
+                    {
+                        LivingRoomLightsOff();
+                    } else
+                    {
+                        BedroomLightsOff();
+                    }
+                } else if (command.Contains("DIM"))
+                {
+                    if (command.Contains("BEDROOM"))
+                    {
+                        BedroomLightsDim();
+                    }
+                    else if (command.Contains("BATHROOM"))
+                    {
+                        BathroomLightsDim();
+                    }
+                    else if (command.Contains("LIVING ROOM"))
+                    {
+                        LivingRoomLightsDim();
+                    }
+                }
             }
 
             return;
         }
 
-        private void BedroomHeaterOn()
+        public void BathroomLightsDim()
+        {
+            webObjects.executeAction("bathroom_lights_dim");
+            Console.WriteLine("Dimming Bathroom Lights");
+        }
+        public void LivingRoomLightsDim()
+        {
+            webObjects.executeAction("livingroom_lights_dim");
+            Console.WriteLine("Dimming Living Room Lights");
+        }
+        public void BedroomLightsDim()
+        {
+            webObjects.executeAction("bedroom_lights_dim");
+            Console.WriteLine("Dimming Bedroom Lights");
+        }
+        public void BathroomLightsOn()
+        {
+            webObjects.executeAction("bathroom_lights_on");
+            Console.WriteLine("Bathroom Lights On");
+        }
+
+        public void BathroomLightsOff()
+        {
+            webObjects.executeAction("bathroom_lights_off");
+            Console.WriteLine("Bathroom Lights Off");
+        }
+        public void BedroomHeaterOn()
         {
             webObjects.executeAction("bedroom_heater_on");
+            Console.WriteLine("Bedroom Heater On");
         }
 
-        private void BedroomHeaterOff()
+        public void BedroomHeaterOff()
         {
             webObjects.executeAction("bedroom_heater_off");
+            Console.WriteLine("Bedroom Heater Off");
         }
 
-        private void LivingRoomLightsOn()
+        public void LivingRoomLightsOn()
         {
             webObjects.executeAction("livingroom_lights_on");
-
+            Console.WriteLine("Living Room Lights On");
         }
 
-        private void LivingRoomLightsOff()
+        public void LivingRoomLightsOff()
         {
             webObjects.executeAction("livingroom_lights_off");
-
+            Console.WriteLine("Living Room Lights Off");
         }
 
         /// <summary>
         /// turns off bedroom lights
         /// </summary>
-        private void BedroomLightsOff()
+        public void BedroomLightsOff()
         {
             webObjects.executeAction("bedroom_lights_off");
+            Console.WriteLine("Bedroom Lights Off");
         }
 
         /// <summary>
         /// turns on bedroom lights to 100% brightness
         /// </summary>
-        private void BedroomLightsOn()
+        public void BedroomLightsOn()
         {
             webObjects.executeAction("bedroom_lights_on");
+            Console.WriteLine("Bedroom Lights On");
         }
 
         /// <summary>
@@ -143,7 +215,7 @@ namespace Windows_Assistant
         /// <summary>
         /// turns up the playbar volume
         /// </summary>
-        private void PlaybarVolumeUp()
+        public void PlaybarVolumeUp()
         {
             webObjects.executeAction("playbar_volume_up");
         }
@@ -151,7 +223,7 @@ namespace Windows_Assistant
         /// <summary>
         /// turns down the playbar volume
         /// </summary>
-        private void PlaybarVolumeDown()
+        public void PlaybarVolumeDown()
         {
             webObjects.executeAction("playbar_volume_down");
         }

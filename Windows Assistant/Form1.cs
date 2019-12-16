@@ -38,13 +38,6 @@ namespace Windows_Assistant
                 checkRunOnStart.CheckState = CheckState.Unchecked;
             }
 
-            //if(rk.ValueCount == 2)
-            //{
-            //    checkRunOnStart.CheckState = CheckState.Checked;
-            //} else
-            //{
-            //    checkRunOnStart.CheckState = CheckState.Unchecked;
-            //}
             choices.Add(new string[] { "activate" });
             Grammar grammar = new Grammar(new GrammarBuilder(choices));
             sre.LoadGrammarAsync(grammar);
@@ -70,9 +63,10 @@ namespace Windows_Assistant
 
         private async void VoiceActivated(object sender, EventArgs e)
         {
-            this.Text = "Listening...";            
+            this.Text = "Listening...";
+            TextOutput.Text = "Listening...";
             List<string> textTranslation = new List<string>();
-            
+            speaking = true;
             try
             {
                 textTranslation = (List<string>)await voiceToText.Activated(7, sender, e);
@@ -84,7 +78,22 @@ namespace Windows_Assistant
             }
             this.Text = "Voice Assistant";
             speaking = false;
-            printResults(textTranslation);
+            TextOutput.Text = "";
+            if (checkPrintResults.Checked) 
+            {
+                    printResults(textTranslation);
+            } else
+            {
+                if (textTranslation.Count < 1)
+                {
+                    // no new command found..
+                    TextOutput.Text = "No new command";
+                } else
+                {
+                    TextOutput.Text = textTranslation[textTranslation.Count - 1];
+                }
+            }
+
             actionController.NewRequest(textTranslation);
 
         }
@@ -161,6 +170,46 @@ namespace Windows_Assistant
             {
                 rk.DeleteValue(Application.ProductName, false);
             }
+        }
+        SmartHomeControl smartHome = new SmartHomeControl();
+        private void BedroomLightsOnButton_Click(object sender, EventArgs e)
+        {
+            smartHome.BedroomLightsOn();
+        }
+
+        private void BedroomLightsOffButton_Click(object sender, EventArgs e)
+        {
+            smartHome.BedroomLightsOff();
+        }
+
+        private void HeaterOnButton_Click(object sender, EventArgs e)
+        {
+            smartHome.BedroomHeaterOn();
+        }
+
+        private void HeaterOffButton_Click(object sender, EventArgs e)
+        {
+            smartHome.BedroomHeaterOff();
+        }
+
+        private void BathroomLightsOnButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BathroomLightsOffButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PlaybarVolumeUpButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PlaybarVolumeDownButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

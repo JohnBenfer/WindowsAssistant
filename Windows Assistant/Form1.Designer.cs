@@ -32,14 +32,14 @@
             this.TextOutput = new System.Windows.Forms.TextBox();
             this.TextInput = new System.Windows.Forms.TextBox();
             this.ActivateButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
+            this.BedroomLightsOnButton = new System.Windows.Forms.Button();
+            this.BedroomLightsOffButton = new System.Windows.Forms.Button();
+            this.HeaterOnButton = new System.Windows.Forms.Button();
+            this.HeaterOffButton = new System.Windows.Forms.Button();
+            this.BathroomLightsOnButton = new System.Windows.Forms.Button();
+            this.BathroomLightsOffButton = new System.Windows.Forms.Button();
+            this.PlaybarVolumeUpButton = new System.Windows.Forms.Button();
+            this.PlaybarVolumeDownButton = new System.Windows.Forms.Button();
             this.MainTabControl = new System.Windows.Forms.TabControl();
             this.MainTab = new System.Windows.Forms.TabPage();
             this.WindowsTab = new System.Windows.Forms.TabPage();
@@ -49,7 +49,7 @@
             this.HouseTab = new System.Windows.Forms.TabPage();
             this.SettingsTab = new System.Windows.Forms.TabPage();
             this.checkRunOnStart = new System.Windows.Forms.CheckBox();
-            this.SettingsPanel = new System.Windows.Forms.Panel();
+            this.checkPrintResults = new System.Windows.Forms.CheckBox();
             this.MainTabControl.SuspendLayout();
             this.MainTab.SuspendLayout();
             this.SettingsTab.SuspendLayout();
@@ -59,10 +59,10 @@
             // 
             this.StopButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StopButton.ForeColor = System.Drawing.Color.Red;
-            this.StopButton.Location = new System.Drawing.Point(467, 7);
+            this.StopButton.Location = new System.Drawing.Point(525, 9);
             this.StopButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.StopButton.Name = "StopButton";
-            this.StopButton.Size = new System.Drawing.Size(101, 36);
+            this.StopButton.Size = new System.Drawing.Size(114, 45);
             this.StopButton.TabIndex = 1;
             this.StopButton.Text = "Exit";
             this.StopButton.UseVisualStyleBackColor = true;
@@ -71,22 +71,22 @@
             // TextOutput
             // 
             this.TextOutput.HideSelection = false;
-            this.TextOutput.Location = new System.Drawing.Point(3, 47);
+            this.TextOutput.Location = new System.Drawing.Point(3, 59);
             this.TextOutput.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextOutput.Multiline = true;
             this.TextOutput.Name = "TextOutput";
             this.TextOutput.ReadOnly = true;
             this.TextOutput.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.TextOutput.Size = new System.Drawing.Size(351, 204);
+            this.TextOutput.Size = new System.Drawing.Size(394, 254);
             this.TextOutput.TabIndex = 2;
             // 
             // TextInput
             // 
-            this.TextInput.Location = new System.Drawing.Point(3, 7);
+            this.TextInput.Location = new System.Drawing.Point(3, 9);
             this.TextInput.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextInput.Multiline = true;
             this.TextInput.Name = "TextInput";
-            this.TextInput.Size = new System.Drawing.Size(351, 36);
+            this.TextInput.Size = new System.Drawing.Size(394, 44);
             this.TextInput.TabIndex = 3;
             this.TextInput.TextChanged += new System.EventHandler(this.TextInput_TextChanged);
             // 
@@ -94,110 +94,118 @@
             // 
             this.ActivateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ActivateButton.ForeColor = System.Drawing.Color.ForestGreen;
-            this.ActivateButton.Location = new System.Drawing.Point(360, 7);
+            this.ActivateButton.Location = new System.Drawing.Point(405, 9);
             this.ActivateButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ActivateButton.Name = "ActivateButton";
-            this.ActivateButton.Size = new System.Drawing.Size(101, 36);
+            this.ActivateButton.Size = new System.Drawing.Size(114, 45);
             this.ActivateButton.TabIndex = 4;
             this.ActivateButton.Text = "Activate";
             this.ActivateButton.UseVisualStyleBackColor = true;
             this.ActivateButton.Click += new System.EventHandler(this.ActivateButton_Click);
             // 
-            // button1
+            // BedroomLightsOnButton
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.button1.Location = new System.Drawing.Point(360, 47);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(101, 48);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Bedroom Lights On";
-            this.button1.UseVisualStyleBackColor = true;
+            this.BedroomLightsOnButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BedroomLightsOnButton.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.BedroomLightsOnButton.Location = new System.Drawing.Point(405, 59);
+            this.BedroomLightsOnButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BedroomLightsOnButton.Name = "BedroomLightsOnButton";
+            this.BedroomLightsOnButton.Size = new System.Drawing.Size(114, 60);
+            this.BedroomLightsOnButton.TabIndex = 5;
+            this.BedroomLightsOnButton.Text = "Bedroom Lights On";
+            this.BedroomLightsOnButton.UseVisualStyleBackColor = true;
+            this.BedroomLightsOnButton.Click += new System.EventHandler(this.BedroomLightsOnButton_Click);
             // 
-            // button2
+            // BedroomLightsOffButton
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.button2.Location = new System.Drawing.Point(467, 47);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(101, 48);
-            this.button2.TabIndex = 15;
-            this.button2.Text = "Bedroom Lights Off";
-            this.button2.UseVisualStyleBackColor = true;
+            this.BedroomLightsOffButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BedroomLightsOffButton.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.BedroomLightsOffButton.Location = new System.Drawing.Point(525, 59);
+            this.BedroomLightsOffButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BedroomLightsOffButton.Name = "BedroomLightsOffButton";
+            this.BedroomLightsOffButton.Size = new System.Drawing.Size(114, 60);
+            this.BedroomLightsOffButton.TabIndex = 15;
+            this.BedroomLightsOffButton.Text = "Bedroom Lights Off";
+            this.BedroomLightsOffButton.UseVisualStyleBackColor = true;
+            this.BedroomLightsOffButton.Click += new System.EventHandler(this.BedroomLightsOffButton_Click);
             // 
-            // button3
+            // HeaterOnButton
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.button3.Location = new System.Drawing.Point(360, 99);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(101, 48);
-            this.button3.TabIndex = 16;
-            this.button3.Text = "Heater On";
-            this.button3.UseVisualStyleBackColor = true;
+            this.HeaterOnButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HeaterOnButton.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.HeaterOnButton.Location = new System.Drawing.Point(405, 124);
+            this.HeaterOnButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.HeaterOnButton.Name = "HeaterOnButton";
+            this.HeaterOnButton.Size = new System.Drawing.Size(114, 60);
+            this.HeaterOnButton.TabIndex = 16;
+            this.HeaterOnButton.Text = "Heater On";
+            this.HeaterOnButton.UseVisualStyleBackColor = true;
+            this.HeaterOnButton.Click += new System.EventHandler(this.HeaterOnButton_Click);
             // 
-            // button4
+            // HeaterOffButton
             // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.button4.Location = new System.Drawing.Point(467, 99);
-            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(101, 48);
-            this.button4.TabIndex = 17;
-            this.button4.Text = "Heater Off";
-            this.button4.UseVisualStyleBackColor = true;
+            this.HeaterOffButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HeaterOffButton.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.HeaterOffButton.Location = new System.Drawing.Point(525, 124);
+            this.HeaterOffButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.HeaterOffButton.Name = "HeaterOffButton";
+            this.HeaterOffButton.Size = new System.Drawing.Size(114, 60);
+            this.HeaterOffButton.TabIndex = 17;
+            this.HeaterOffButton.Text = "Heater Off";
+            this.HeaterOffButton.UseVisualStyleBackColor = true;
+            this.HeaterOffButton.Click += new System.EventHandler(this.HeaterOffButton_Click);
             // 
-            // button5
+            // BathroomLightsOnButton
             // 
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.button5.Location = new System.Drawing.Point(360, 151);
-            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(101, 48);
-            this.button5.TabIndex = 18;
-            this.button5.Text = "Bathroom Lamp On";
-            this.button5.UseVisualStyleBackColor = true;
+            this.BathroomLightsOnButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BathroomLightsOnButton.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.BathroomLightsOnButton.Location = new System.Drawing.Point(405, 189);
+            this.BathroomLightsOnButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BathroomLightsOnButton.Name = "BathroomLightsOnButton";
+            this.BathroomLightsOnButton.Size = new System.Drawing.Size(114, 60);
+            this.BathroomLightsOnButton.TabIndex = 18;
+            this.BathroomLightsOnButton.Text = "Bathroom Lights On";
+            this.BathroomLightsOnButton.UseVisualStyleBackColor = true;
+            this.BathroomLightsOnButton.Click += new System.EventHandler(this.BathroomLightsOnButton_Click);
             // 
-            // button6
+            // BathroomLightsOffButton
             // 
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.button6.Location = new System.Drawing.Point(467, 151);
-            this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(101, 48);
-            this.button6.TabIndex = 19;
-            this.button6.Text = "Bathroom Lamp Off";
-            this.button6.UseVisualStyleBackColor = true;
+            this.BathroomLightsOffButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BathroomLightsOffButton.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.BathroomLightsOffButton.Location = new System.Drawing.Point(525, 189);
+            this.BathroomLightsOffButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BathroomLightsOffButton.Name = "BathroomLightsOffButton";
+            this.BathroomLightsOffButton.Size = new System.Drawing.Size(114, 60);
+            this.BathroomLightsOffButton.TabIndex = 19;
+            this.BathroomLightsOffButton.Text = "Bathroom Lights Off";
+            this.BathroomLightsOffButton.UseVisualStyleBackColor = true;
+            this.BathroomLightsOffButton.Click += new System.EventHandler(this.BathroomLightsOffButton_Click);
             // 
-            // button7
+            // PlaybarVolumeUpButton
             // 
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.button7.Location = new System.Drawing.Point(360, 203);
-            this.button7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(101, 48);
-            this.button7.TabIndex = 20;
-            this.button7.Text = "Playbar Volume Up";
-            this.button7.UseVisualStyleBackColor = true;
+            this.PlaybarVolumeUpButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PlaybarVolumeUpButton.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.PlaybarVolumeUpButton.Location = new System.Drawing.Point(405, 254);
+            this.PlaybarVolumeUpButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.PlaybarVolumeUpButton.Name = "PlaybarVolumeUpButton";
+            this.PlaybarVolumeUpButton.Size = new System.Drawing.Size(114, 60);
+            this.PlaybarVolumeUpButton.TabIndex = 20;
+            this.PlaybarVolumeUpButton.Text = "Playbar Volume Up";
+            this.PlaybarVolumeUpButton.UseVisualStyleBackColor = true;
+            this.PlaybarVolumeUpButton.Click += new System.EventHandler(this.PlaybarVolumeUpButton_Click);
             // 
-            // button8
+            // PlaybarVolumeDownButton
             // 
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.button8.Location = new System.Drawing.Point(467, 203);
-            this.button8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(101, 48);
-            this.button8.TabIndex = 21;
-            this.button8.Text = "Playbar Vol Down";
-            this.button8.UseVisualStyleBackColor = true;
+            this.PlaybarVolumeDownButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PlaybarVolumeDownButton.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.PlaybarVolumeDownButton.Location = new System.Drawing.Point(525, 254);
+            this.PlaybarVolumeDownButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.PlaybarVolumeDownButton.Name = "PlaybarVolumeDownButton";
+            this.PlaybarVolumeDownButton.Size = new System.Drawing.Size(114, 60);
+            this.PlaybarVolumeDownButton.TabIndex = 21;
+            this.PlaybarVolumeDownButton.Text = "Playbar Vol Down";
+            this.PlaybarVolumeDownButton.UseVisualStyleBackColor = true;
+            this.PlaybarVolumeDownButton.Click += new System.EventHandler(this.PlaybarVolumeDownButton_Click);
             // 
             // MainTabControl
             // 
@@ -208,91 +216,98 @@
             this.MainTabControl.Controls.Add(this.BathroomTab);
             this.MainTabControl.Controls.Add(this.HouseTab);
             this.MainTabControl.Controls.Add(this.SettingsTab);
-            this.MainTabControl.Location = new System.Drawing.Point(1, 3);
+            this.MainTabControl.Location = new System.Drawing.Point(1, 4);
+            this.MainTabControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MainTabControl.Name = "MainTabControl";
             this.MainTabControl.Padding = new System.Drawing.Point(6, 4);
             this.MainTabControl.SelectedIndex = 0;
-            this.MainTabControl.Size = new System.Drawing.Size(585, 290);
+            this.MainTabControl.Size = new System.Drawing.Size(658, 362);
             this.MainTabControl.TabIndex = 22;
             // 
             // MainTab
             // 
             this.MainTab.Controls.Add(this.TextInput);
-            this.MainTab.Controls.Add(this.button8);
+            this.MainTab.Controls.Add(this.PlaybarVolumeDownButton);
             this.MainTab.Controls.Add(this.StopButton);
-            this.MainTab.Controls.Add(this.button7);
+            this.MainTab.Controls.Add(this.PlaybarVolumeUpButton);
             this.MainTab.Controls.Add(this.TextOutput);
-            this.MainTab.Controls.Add(this.button6);
+            this.MainTab.Controls.Add(this.BathroomLightsOffButton);
             this.MainTab.Controls.Add(this.ActivateButton);
-            this.MainTab.Controls.Add(this.button5);
-            this.MainTab.Controls.Add(this.button1);
-            this.MainTab.Controls.Add(this.button4);
-            this.MainTab.Controls.Add(this.button2);
-            this.MainTab.Controls.Add(this.button3);
-            this.MainTab.Location = new System.Drawing.Point(4, 27);
+            this.MainTab.Controls.Add(this.BathroomLightsOnButton);
+            this.MainTab.Controls.Add(this.BedroomLightsOnButton);
+            this.MainTab.Controls.Add(this.HeaterOffButton);
+            this.MainTab.Controls.Add(this.BedroomLightsOffButton);
+            this.MainTab.Controls.Add(this.HeaterOnButton);
+            this.MainTab.Location = new System.Drawing.Point(4, 31);
+            this.MainTab.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MainTab.Name = "MainTab";
-            this.MainTab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.MainTab.Size = new System.Drawing.Size(577, 259);
+            this.MainTab.Padding = new System.Windows.Forms.Padding(3, 4, 3, 0);
+            this.MainTab.Size = new System.Drawing.Size(650, 327);
             this.MainTab.TabIndex = 0;
             this.MainTab.Text = "Main";
             this.MainTab.UseVisualStyleBackColor = true;
             // 
             // WindowsTab
             // 
-            this.WindowsTab.Location = new System.Drawing.Point(4, 27);
+            this.WindowsTab.Location = new System.Drawing.Point(4, 31);
+            this.WindowsTab.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.WindowsTab.Name = "WindowsTab";
-            this.WindowsTab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.WindowsTab.Size = new System.Drawing.Size(577, 259);
+            this.WindowsTab.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.WindowsTab.Size = new System.Drawing.Size(650, 327);
             this.WindowsTab.TabIndex = 2;
             this.WindowsTab.Text = "Windows";
             this.WindowsTab.UseVisualStyleBackColor = true;
             // 
             // BedroomTab
             // 
-            this.BedroomTab.Location = new System.Drawing.Point(4, 27);
+            this.BedroomTab.Location = new System.Drawing.Point(4, 31);
+            this.BedroomTab.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.BedroomTab.Name = "BedroomTab";
-            this.BedroomTab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.BedroomTab.Size = new System.Drawing.Size(577, 259);
+            this.BedroomTab.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.BedroomTab.Size = new System.Drawing.Size(650, 327);
             this.BedroomTab.TabIndex = 1;
             this.BedroomTab.Text = "Bedroom";
             this.BedroomTab.UseVisualStyleBackColor = true;
             // 
             // LivingRoomTab
             // 
-            this.LivingRoomTab.Location = new System.Drawing.Point(4, 27);
+            this.LivingRoomTab.Location = new System.Drawing.Point(4, 31);
+            this.LivingRoomTab.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LivingRoomTab.Name = "LivingRoomTab";
-            this.LivingRoomTab.Size = new System.Drawing.Size(577, 259);
+            this.LivingRoomTab.Size = new System.Drawing.Size(650, 327);
             this.LivingRoomTab.TabIndex = 4;
             this.LivingRoomTab.Text = "Living Room";
             this.LivingRoomTab.UseVisualStyleBackColor = true;
             // 
             // BathroomTab
             // 
-            this.BathroomTab.Location = new System.Drawing.Point(4, 27);
+            this.BathroomTab.Location = new System.Drawing.Point(4, 31);
+            this.BathroomTab.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.BathroomTab.Name = "BathroomTab";
-            this.BathroomTab.Size = new System.Drawing.Size(577, 259);
+            this.BathroomTab.Size = new System.Drawing.Size(650, 327);
             this.BathroomTab.TabIndex = 5;
             this.BathroomTab.Text = "Bathroom";
             this.BathroomTab.UseVisualStyleBackColor = true;
             // 
             // HouseTab
             // 
-            this.HouseTab.Location = new System.Drawing.Point(4, 27);
+            this.HouseTab.Location = new System.Drawing.Point(4, 31);
+            this.HouseTab.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.HouseTab.Name = "HouseTab";
-            this.HouseTab.Size = new System.Drawing.Size(577, 259);
+            this.HouseTab.Size = new System.Drawing.Size(650, 327);
             this.HouseTab.TabIndex = 3;
             this.HouseTab.Text = "House";
             this.HouseTab.UseVisualStyleBackColor = true;
             // 
             // SettingsTab
             // 
-            this.SettingsTab.Controls.Add(this.SettingsPanel);
+            this.SettingsTab.Controls.Add(this.checkPrintResults);
             this.SettingsTab.Controls.Add(this.checkRunOnStart);
-            this.SettingsTab.Location = new System.Drawing.Point(4, 27);
+            this.SettingsTab.Location = new System.Drawing.Point(4, 31);
             this.SettingsTab.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SettingsTab.Name = "SettingsTab";
             this.SettingsTab.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.SettingsTab.Size = new System.Drawing.Size(577, 259);
+            this.SettingsTab.Size = new System.Drawing.Size(650, 327);
             this.SettingsTab.TabIndex = 6;
             this.SettingsTab.Text = "Settings";
             this.SettingsTab.UseVisualStyleBackColor = true;
@@ -300,30 +315,36 @@
             // checkRunOnStart
             // 
             this.checkRunOnStart.AutoSize = true;
-            this.checkRunOnStart.Location = new System.Drawing.Point(7, 6);
+            this.checkRunOnStart.Location = new System.Drawing.Point(8, 8);
             this.checkRunOnStart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkRunOnStart.Name = "checkRunOnStart";
-            this.checkRunOnStart.Size = new System.Drawing.Size(124, 21);
+            this.checkRunOnStart.Size = new System.Drawing.Size(141, 24);
             this.checkRunOnStart.TabIndex = 0;
             this.checkRunOnStart.Text = "Run on startup";
             this.checkRunOnStart.UseVisualStyleBackColor = true;
             this.checkRunOnStart.CheckedChanged += new System.EventHandler(this.checkRunOnStart_CheckedChanged);
             // 
-            // SettingsPanel
+            // checkPrintResults
             // 
-            this.SettingsPanel.Location = new System.Drawing.Point(0, 45);
-            this.SettingsPanel.Name = "SettingsPanel";
-            this.SettingsPanel.Size = new System.Drawing.Size(577, 214);
-            this.SettingsPanel.TabIndex = 1;
+            this.checkPrintResults.AutoSize = true;
+            this.checkPrintResults.Location = new System.Drawing.Point(8, 36);
+            this.checkPrintResults.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkPrintResults.Name = "checkPrintResults";
+            this.checkPrintResults.Size = new System.Drawing.Size(162, 24);
+            this.checkPrintResults.TabIndex = 1;
+            this.checkPrintResults.Text = "Print Transcription";
+            this.checkPrintResults.UseVisualStyleBackColor = true;
             // 
             // UI
             // 
             this.AcceptButton = this.ActivateButton;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(583, 293);
+            this.ClientSize = new System.Drawing.Size(656, 366);
             this.Controls.Add(this.MainTabControl);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
             this.Name = "UI";
             this.ShowIcon = false;
             this.Text = "Voice Assistant";
@@ -342,14 +363,14 @@
         private System.Windows.Forms.TextBox TextOutput;
         private System.Windows.Forms.TextBox TextInput;
         private System.Windows.Forms.Button ActivateButton;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button BedroomLightsOnButton;
+        private System.Windows.Forms.Button BedroomLightsOffButton;
+        private System.Windows.Forms.Button HeaterOnButton;
+        private System.Windows.Forms.Button HeaterOffButton;
+        private System.Windows.Forms.Button BathroomLightsOnButton;
+        private System.Windows.Forms.Button BathroomLightsOffButton;
+        private System.Windows.Forms.Button PlaybarVolumeUpButton;
+        private System.Windows.Forms.Button PlaybarVolumeDownButton;
         private System.Windows.Forms.TabControl MainTabControl;
         private System.Windows.Forms.TabPage MainTab;
         private System.Windows.Forms.TabPage BedroomTab;
@@ -359,7 +380,7 @@
         private System.Windows.Forms.TabPage BathroomTab;
         private System.Windows.Forms.TabPage SettingsTab;
         private System.Windows.Forms.CheckBox checkRunOnStart;
-        private System.Windows.Forms.Panel SettingsPanel;
+        private System.Windows.Forms.CheckBox checkPrintResults;
     }
 }
 
