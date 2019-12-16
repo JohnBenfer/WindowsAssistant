@@ -99,13 +99,18 @@ namespace Windows_Assistant
         /// launches a passed in application from a shortcut link in the Apps folder
         /// </summary>
         /// <param name="app">the app to launch</param>
-        private void LaunchApplication(string app)
+        public void LaunchApplication(string app)
         {
             Console.WriteLine("launching..");
             string link = "C:/Apps/" + app.ToLower() + ".exe.lnk";
             Process proc = new Process();
             proc.StartInfo.FileName = @link;
             proc.Start();
+        }
+
+        public void PCSleep()
+        {
+            Application.SetSuspendState(PowerState.Suspend, true, true);
         }
 
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Media;
 using System.Speech.Recognition;
@@ -176,6 +177,12 @@ namespace Windows_Assistant
                 rk.DeleteValue(Application.ProductName, false);
             }
         }
+
+
+        //////////////////////////////////////// UI Buttons /////////////////////////////////////////////
+
+
+        WindowsControl wc = new WindowsControl();
         SmartHomeControl smartHome = new SmartHomeControl();
         private void BedroomLightsOnButton_Click(object sender, EventArgs e)
         {
@@ -199,22 +206,73 @@ namespace Windows_Assistant
 
         private void BathroomLightsOnButton_Click(object sender, EventArgs e)
         {
-
+            smartHome.BathroomLightsOn();
         }
 
         private void BathroomLightsOffButton_Click(object sender, EventArgs e)
         {
+            smartHome.BathroomLightsOff();
+        }
+        private void LivingroomLightsOnButton_Click(object sender, EventArgs e)
+        {
+            smartHome.LivingRoomLightsOn();
+        }
 
+        private void LivingroomLightsOffButton_Click(object sender, EventArgs e)
+        {
+            smartHome.LivingRoomLightsOff();
         }
 
         private void PlaybarVolumeUpButton_Click(object sender, EventArgs e)
         {
-
+            smartHome.PlaybarVolumeUp();
         }
 
         private void PlaybarVolumeDownButton_Click(object sender, EventArgs e)
         {
+            smartHome.PlaybarVolumeDown();
+        }
+
+        private void CloseAllAppsButton_Click(object sender, EventArgs e)
+        {
+            foreach (Process p in Process.GetProcesses(System.Environment.MachineName))
+            {
+                if (p.MainWindowHandle != IntPtr.Zero)
+                {
+                    if(!p.ProcessName.Contains("Visual Studio") && !p.ProcessName.Contains("Chrome"))
+                    {
+                        p.Kill();
+                    }
+                    
+                }
+            }
+        }
+
+        private void OpenChromeButton_Click(object sender, EventArgs e)
+        {
 
         }
+
+        private void OpenSpotifyButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void OpenLightroomButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void OpenNotepadButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PCSleepButton_Click(object sender, EventArgs e)
+        {
+            wc.PCSleep();
+        }
+
+
     }
 }
