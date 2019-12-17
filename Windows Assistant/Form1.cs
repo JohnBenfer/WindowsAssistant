@@ -25,7 +25,6 @@ namespace Windows_Assistant
         public UI()
         {
             InitializeComponent();
-            detect_Speech();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -76,7 +75,7 @@ namespace Windows_Assistant
             try
             {
                 textTranslation = (List<string>)await voiceToText.Activated(7, sender, e);
-                SystemSounds.Hand.Play();
+                //SystemSounds.Hand.Play();
             } catch (Exception ex)
             {
                 Console.WriteLine(ex.InnerException);
@@ -97,6 +96,7 @@ namespace Windows_Assistant
                 } else
                 {
                     TextOutput.Text = textTranslation[textTranslation.Count - 1];
+                    SystemSounds.Hand.Play();
                 }
             }
 
@@ -142,17 +142,17 @@ namespace Windows_Assistant
                 Environment.Exit(0);
             }
         }
-
-        private void TextInput_TextChanged(object sender, EventArgs e)
+        private void MuteMicCheckbox_CheckedChanged(object sender, EventArgs e)
         {
-
-        }
-
-
-        private void detect_Speech()
-        {
-            Console.WriteLine("aqui");
-
+            if (MuteMicCheckbox.Checked)
+            {
+                speaking = true;
+                TextOutput.Text = "The mic is muted";
+            } else
+            {
+                speaking = false;
+                TextOutput.Text = "The mic is back on";
+            }
         }
 
         private void Sre_SpeechDetected(object sender, SpeechDetectedEventArgs e)
@@ -412,5 +412,7 @@ namespace Windows_Assistant
         {
             smartHome.PlaybarVolumeDown();
         }
+
+
     }
 }
