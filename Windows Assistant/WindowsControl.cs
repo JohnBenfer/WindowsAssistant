@@ -38,6 +38,9 @@ namespace Windows_Assistant
                 else if (command.Contains("POSTMAN"))
                 {
                     LaunchApplication("POSTMAN");
+                } else if(command.Contains("ALL"))
+                {
+
                 }
             } else if (command.Contains("EXIT") || command.Contains("QUIT") || command.Contains("CLOSE"))
             {
@@ -71,7 +74,11 @@ namespace Windows_Assistant
                 {
 
                 }
-            } else
+            } else if(command.Contains("SLEEP"))
+            {
+                PCSleep();
+            }
+            else
             {
                 MessageBox.Show("Command not found..");
             }
@@ -111,6 +118,11 @@ namespace Windows_Assistant
         public void PCSleep()
         {
             Application.SetSuspendState(PowerState.Suspend, true, true);
+        }
+
+        public void CloseAllApps()
+        {
+
         }
 
     }

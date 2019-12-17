@@ -32,7 +32,7 @@ namespace Windows_Assistant
         {
             // sets the start postion of the window
             this.StartPosition = FormStartPosition.Manual;
-            this.Location = new Point(1500, 340);
+            this.Location = new Point(950, 20);
 
             // sets the run on startup checkbox accordingly
             try
@@ -250,22 +250,22 @@ namespace Windows_Assistant
 
         private void OpenChromeButton_Click(object sender, EventArgs e)
         {
-
+            wc.LaunchApplication("google chrome");
         }
 
         private void OpenSpotifyButton_Click(object sender, EventArgs e)
         {
-
+            wc.LaunchApplication("spotify");
         }
 
         private void OpenLightroomButton_Click(object sender, EventArgs e)
         {
-
+            wc.LaunchApplication("lightroom");
         }
 
         private void OpenNotepadButton_Click(object sender, EventArgs e)
         {
-
+            wc.LaunchApplication("notepad++");
         }
 
         private void PCSleepButton_Click(object sender, EventArgs e)

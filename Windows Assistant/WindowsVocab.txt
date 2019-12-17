@@ -16,3 +16,4 @@ Turn up the volume
 Turn down the volume
 Play Spotify
 Play music
+sleep

@@ -20,4 +20,4 @@ bedroom heater off
 
 *** WINDOWS CONTROL ***
 open application (Google Chrome, Spotify, Notepad++, Postman, Lightroom)
-close application (Spotify, Notepad++)
+close application (Spotify, Notepad++, Postman)
