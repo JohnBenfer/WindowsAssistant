@@ -106,7 +106,7 @@
             this.TextOutput.Name = "TextOutput";
             this.TextOutput.ReadOnly = true;
             this.TextOutput.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.TextOutput.Size = new System.Drawing.Size(472, 175);
+            this.TextOutput.Size = new System.Drawing.Size(469, 173);
             this.TextOutput.TabIndex = 2;
             // 
             // ActivateButton
