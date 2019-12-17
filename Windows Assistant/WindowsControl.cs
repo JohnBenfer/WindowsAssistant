@@ -87,7 +87,7 @@ namespace Windows_Assistant
             return;
         }
 
-        private void ExitApplication(string app)
+        public void ExitApplication(string app)
         {
             try
             {
@@ -102,17 +102,24 @@ namespace Windows_Assistant
                 MessageBox.Show("Application " + app + " not found");
             }
         }
+        
         /// <summary>
         /// launches a passed in application from a shortcut link in the Apps folder
         /// </summary>
         /// <param name="app">the app to launch</param>
         public void LaunchApplication(string app)
         {
-            Console.WriteLine("launching..");
-            string link = "C:/Apps/" + app.ToLower() + ".exe.lnk";
-            Process proc = new Process();
-            proc.StartInfo.FileName = @link;
-            proc.Start();
+            try
+            {
+                Console.WriteLine("launching..");
+                string link = "C:/Apps/" + app.ToLower() + ".exe.lnk";
+                Process proc = new Process();
+                proc.StartInfo.FileName = @link;
+                proc.Start();
+            } catch
+            {
+
+            }
         }
 
         public void PCSleep()
@@ -122,8 +129,20 @@ namespace Windows_Assistant
 
         public void CloseAllApps()
         {
+            foreach (Process p in Process.GetProcesses(System.Environment.MachineName))
+            {
+                if (p.MainWindowHandle != IntPtr.Zero)
+                {
+                    if (!p.ProcessName.Contains("Visual Studio") && !p.ProcessName.Contains("Chrome") && !p.ProcessName.Contains("Windows Assistant"))
+                    {
+                        p.Kill();
+                    }
 
+                }
+            }
         }
+
+
 
     }
 }

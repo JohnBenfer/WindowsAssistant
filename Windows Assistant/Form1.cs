@@ -235,22 +235,12 @@ namespace Windows_Assistant
 
         private void CloseAllAppsButton_Click(object sender, EventArgs e)
         {
-            foreach (Process p in Process.GetProcesses(System.Environment.MachineName))
-            {
-                if (p.MainWindowHandle != IntPtr.Zero)
-                {
-                    if(!p.ProcessName.Contains("Visual Studio") && !p.ProcessName.Contains("Chrome"))
-                    {
-                        p.Kill();
-                    }
-                    
-                }
-            }
+            wc.CloseAllApps();
         }
 
         private void OpenChromeButton_Click(object sender, EventArgs e)
         {
-            wc.LaunchApplication("google chrome");
+            wc.LaunchApplication("chrome");
         }
 
         private void OpenSpotifyButton_Click(object sender, EventArgs e)
@@ -273,6 +263,154 @@ namespace Windows_Assistant
             wc.PCSleep();
         }
 
+        private void OpenChromeButton1_Click(object sender, EventArgs e)
+        {
+            wc.LaunchApplication("chrome");
+        }
 
+        private void CloseChromeButton1_Click(object sender, EventArgs e)
+        {
+            wc.ExitApplication("chrome");
+        }
+
+        private void OpenLightroomButton1_Click(object sender, EventArgs e)
+        {
+            wc.LaunchApplication("lighroom");
+        }
+
+        private void CloseLightroomButton1_Click(object sender, EventArgs e)
+        {
+            wc.ExitApplication("lighroom");
+        }
+
+        private void OpenSpotifyButton1_Click(object sender, EventArgs e)
+        {
+            wc.LaunchApplication("spotify");
+        }
+
+        private void CloseSpotifyButton1_Click(object sender, EventArgs e)
+        {
+            wc.ExitApplication("spotify");
+        }
+
+        private void OpenNotepadButton1_Click(object sender, EventArgs e)
+        {
+            wc.LaunchApplication("notepad++");
+        }
+
+        private void CloseNotepadButton1_Click(object sender, EventArgs e)
+        {
+            wc.ExitApplication("notepad++");
+        }
+
+        private void CloseAllAppsButton1_Click(object sender, EventArgs e)
+        {
+            wc.CloseAllApps();
+        }
+
+        private void PCSleepButton1_Click(object sender, EventArgs e)
+        {
+            wc.PCSleep();
+        }
+
+        private void BedroomLightsOnButton2_Click(object sender, EventArgs e)
+        {
+            smartHome.BedroomLightsOn();
+        }
+
+        private void BedroomLightsOffButton3_Click(object sender, EventArgs e)
+        {
+            smartHome.BedroomLightsOff();
+        }
+
+        private void HeaterOnButton2_Click(object sender, EventArgs e)
+        {
+            smartHome.BedroomHeaterOn();
+        }
+
+        private void HeaterOffButton2_Click(object sender, EventArgs e)
+        {
+            smartHome.BedroomHeaterOff();
+        }
+
+        private void PlaybarVolumeUpButton2_Click(object sender, EventArgs e)
+        {
+            smartHome.PlaybarVolumeUp();
+        }
+
+        private void PlaybarVolumeDownButton2_Click(object sender, EventArgs e)
+        {
+            smartHome.PlaybarVolumeDown();
+        }
+
+        private void LivingroomLightsOnButton3_Click(object sender, EventArgs e)
+        {
+            smartHome.LivingRoomLightsOn();
+        }
+
+        private void LivingroomLightsOffButton3_Click(object sender, EventArgs e)
+        {
+            smartHome.LivingRoomLightsOff();
+        }
+
+        private void BathroomLightsOnButton4_Click(object sender, EventArgs e)
+        {
+            smartHome.BathroomLightsOn();
+        }
+
+        private void BathroomLightsOffButton4_Click(object sender, EventArgs e)
+        {
+            smartHome.BathroomLightsOff();
+        }
+
+        private void BedroomLightsOnButton5_Click(object sender, EventArgs e)
+        {
+            smartHome.BedroomLightsOn();
+        }
+
+        private void BedroomLightsOffButton5_Click(object sender, EventArgs e)
+        {
+            smartHome.BedroomLightsOff();
+        }
+
+        private void BathroomLightsOnButton5_Click(object sender, EventArgs e)
+        {
+            smartHome.BathroomLightsOn();
+        }
+
+        private void BathroomLightsOffButton5_Click(object sender, EventArgs e)
+        {
+            smartHome.BathroomLightsOff();
+        }
+
+        private void LivingroomLightsOnButton5_Click(object sender, EventArgs e)
+        {
+            smartHome.LivingRoomLightsOn();
+        }
+
+        private void LivingroomLightsOffButton5_Click(object sender, EventArgs e)
+        {
+            smartHome.LivingRoomLightsOff();
+        }
+
+        private void HeaterOnButton5_Click(object sender, EventArgs e)
+        {
+            smartHome.BedroomHeaterOn();
+        }
+
+        private void HeaterOffButton5_Click(object sender, EventArgs e)
+        {
+            smartHome.BedroomHeaterOff();
+        }
+
+        private void PlaybarVolumeUpButton5_Click(object sender, EventArgs e)
+        {
+            smartHome.PlaybarVolumeUp();
+        }
+
+        private void PlaybarVolumeDownButton5_Click(object sender, EventArgs e)
+        {
+            smartHome.PlaybarVolumeDown();
+        }
     }
 }
