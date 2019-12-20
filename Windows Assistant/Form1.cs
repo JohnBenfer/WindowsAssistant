@@ -43,7 +43,7 @@ namespace Windows_Assistant
                 checkRunOnStart.CheckState = CheckState.Unchecked;
             }
 
-            choices.Add(new string[] { "activate" });
+            choices.Add(new string[] { "is", "hello", "goodbye", "day", "activate now", "lactate", "recipricate", "but", "aplicate", "narrate", "attention", "assistant", "average", "legacy", "glacier", "family", "and" });
             Grammar grammar = new Grammar(new GrammarBuilder(choices));
             sre.LoadGrammarAsync(grammar);
             sre.SetInputToDefaultAudioDevice();
@@ -55,9 +55,11 @@ namespace Windows_Assistant
 
         private void Sre_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
+            //Console.WriteLine(e.Result.Text);
             if (!speaking)
             {
-                if (e.Result.Text.Equals("activate"))
+                
+                if (e.Result.Text.Equals("attention"))
                 {
                     Console.WriteLine(e.Result.Text + "..");
                     speaking = true;
